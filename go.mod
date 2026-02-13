@@ -2,7 +2,7 @@ module github.com/xoctopus/typx
 
 go 1.25.5
 
-require github.com/xoctopus/x v0.3.0
+require github.com/xoctopus/x v0.3.2
 
 require golang.org/x/tools v0.42.0
 
