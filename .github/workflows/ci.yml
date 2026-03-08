@@ -20,8 +20,11 @@ jobs:
       - name: setup-go
         uses: actions/setup-go@v6
         with:
-          go-version: '^1.25.5'
-          check-latest: 'true'
+          go-version: '^1.26'
+          check-latest: true
+
+      - name: fmt-check
+        run: make fmt-check
 
       - name: test
         run: make ci-cover
@@ -30,4 +33,4 @@ jobs:
         uses: codecov/codecov-action@v5
         with:
           token: ${{secrets.CODECOV_TOKEN}}
-          file: ./cover.out
+          files: ./cover.out

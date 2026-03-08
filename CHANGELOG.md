@@ -1,4 +1,31 @@
 
+<a name="HEAD"></a>
+## [HEAD](https://github.com/xoctopus/x/compare/v0.4.0...HEAD)
+
+> 0001-01-01
+
+
+<a name="v0.4.0"></a>
+## [v0.4.0](https://github.com/xoctopus/x/compare/v0.3.4...v0.4.0)
+
+> 2026-03-08
+
+### Chore
+
+* format config and regen
+* **deps:** bump xoctopus/x to v0.4.0
+* **deps:** bump dependencies
+* **deps:** bump github.com/xoctopus/x from 0.2.11 to 0.3.0
+* **deps:** bump actions/setup-go from 5 to 6 ([#1](https://github.com/xoctopus/x/issues/1))
+* **deps:** bump actions/checkout from 4 to 6 ([#2](https://github.com/xoctopus/x/issues/2))
+* **deps:** bump codecov/codecov-action from 4 to 5 ([#3](https://github.com/xoctopus/x/issues/3))
+* **deps:** bump github.com/xoctopus/x from 0.2.7 to 0.2.11 ([#4](https://github.com/xoctopus/x/issues/4))
+
+### Doc
+
+* add changelog and makefile entry
+
+
 <a name="v0.3.4"></a>
 ## [v0.3.4](https://github.com/xoctopus/x/compare/v0.3.3...v0.3.4)
 

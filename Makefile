@@ -8,15 +8,15 @@ FORMAT_IGNORES := ".git/,.xgo/,*.pb.go,*_genx_*"
 # git repository info
 IS_GIT_REPO := $(shell git rev-parse --is-inside-work-tree >/dev/null 2>&1 && echo 1 || echo 0)
 ifeq ($(IS_GIT_REPO),1)
-GIT_COMMIT := $(shell git rev-parse --short HEAD 2>/dev/null || echo "")
-GIT_TAG    := $(shell git describe --tags --abbrev=0 2>/dev/null || echo "")
-GIT_BRANCH := $(shell git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
+export GIT_COMMIT := $(shell git rev-parse --short HEAD 2>/dev/null || echo "")
+export GIT_TAG    := $(shell git describe --tags --abbrev=0 2>/dev/null || echo "")
+export GIT_BRANCH := $(shell git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
 else
-GIT_COMMIT := ""
-GIT_TAG    := ""
-GIT_BRANCH := ""
+export GIT_COMMIT := ""
+export GIT_TAG    := ""
+export GIT_BRANCH := ""
 endif
-BUILD_AT=$(shell date "+%Y%m%d%H%M%S")
+export BUILD_AT := $(shell date "+%Y%m%d%H%M%S")
 
 # global env variables
 export GOWORK := off
@@ -88,7 +88,7 @@ upgrade-dep:
 	@echo "	DONE."
 
 tidy:
-	@echo "==> installing dependencies"
+	@echo "==> go mod tidy"
 	@go mod tidy
 
 test: dep tidy
@@ -97,14 +97,14 @@ test: dep tidy
 
 cover: dep tidy
 	@echo "==> run unit test with coverage"
-	@$(GOTEST) test ./... -failfast -parallel 1 -gcflags="all=-N -l" -covermode=count -coverprofile=cover.out
+	@$(GOTEST) test ./...  -failfast -parallel 1 -gcflags="all=-N -l" -covermode=count -coverprofile=cover.out
 	@grep -vE $(TEST_IGNORES) cover.out > cover2.out && mv cover2.out cover.out
 
 view-cover: cover
 	@echo "==> run unit test with coverage and view results"
 	@$(GOBUILD) tool cover -html cover.out
 
-ci-cover: cover
+ci-cover: lint cover
 
 
 fmt: dep clean
@@ -114,10 +114,18 @@ fmt: dep clean
 		-project-name ${MODULE_PATH} \
 		-excludes $(FORMAT_IGNORES) ./...
 
+fmt-check: fmt
+	@echo "==> checking code format"
+	@if [ -n "$$(git status --porcelain)" ]; then \
+		echo "code is not properly formatted."; \
+		exit 1; \
+	fi
+
 lint: dep
 	@echo "==> linting"
 	@echo ">>>golangci-lint"
 	@golangci-lint run
+	@go vet ./...
 	@echo "done"
 
 clean:
@@ -126,6 +134,6 @@ clean:
 	@rm -rf build/*
 
 changelog:
-	@git chglog -o CHANGELOG.md || true
+	@git chglog --next-tag HEAD -o CHANGELOG.md || true
 
 pre-commit: dep fmt lint view-cover changelog
