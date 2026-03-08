@@ -2,7 +2,11 @@
 <a name="HEAD"></a>
 ## [HEAD](https://github.com/xoctopus/x/compare/v0.4.0...HEAD)
 
-> 0001-01-01
+> 2026-03-08
+
+### Ci
+
+* update Makefile
 
 
 <a name="v0.4.0"></a>
