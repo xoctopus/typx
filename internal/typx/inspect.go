@@ -133,12 +133,12 @@ func (i *inspector) inspect(t types.Type) {
 		i.inspect(e)
 	case *types.Named:
 		i.inspect(x.Underlying())
-		for idx := range x.NumMethods() {
-			i.appendMethod(x.Method(idx))
+		for method := range x.Methods() {
+			i.appendMethod(method)
 		}
 	case *types.Interface:
-		for idx := range x.NumMethods() {
-			i.appendMethod(x.Method(idx))
+		for method := range x.Methods() {
+			i.appendMethod(method)
 		}
 	case *types.Struct:
 		for idx := range x.NumFields() {

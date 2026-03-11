@@ -275,7 +275,7 @@ var (
 	wTypedArrayUnnamedStruct = `github_com_xoctopus_typx_testdata.TypedArray[` + wUnnamedStruct + `]`
 	oTypedArrayUnnamedStruct = `github.com/xoctopus/typx/testdata.TypedArray[` + oUnnamedStruct + `]`
 
-	rTypedArrayEmptyInterface = reflect.TypeFor[testdata.TypedArray[interface{}]]()
+	rTypedArrayEmptyInterface = reflect.TypeFor[testdata.TypedArray[any]]()
 	tTypedArrayEmptyInterface = typx.Instantiate(_tTypedArray, tEmptyInterface)
 
 	rTypedArrayUnnamedInterface = reflect.TypeFor[testdata.TypedArray[interface {

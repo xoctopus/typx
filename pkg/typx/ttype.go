@@ -345,8 +345,8 @@ func (m *TMethod) Type() Type {
 	if _, ok := m.r.Underlying().(*types.Interface); !ok {
 		params = append(params, types.NewParam(0, nil, "", m.r))
 	}
-	for i := range s.Params().Len() {
-		params = append(params, s.Params().At(i))
+	for v := range s.Params().Variables() {
+		params = append(params, v)
 	}
 	return NewTType(
 		types.NewSignatureType(

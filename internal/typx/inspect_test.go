@@ -24,8 +24,7 @@ func runner(t *testing.T, rt reflect.Type, tt types.Type) {
 
 func TestInspectMethods(t *testing.T) {
 	rtyp := reflect.TypeFor[testdata.Structures]()
-	for i := range rtyp.NumField() {
-		f := rtyp.Field(i)
+	for f := range rtyp.Fields() {
 		rt := f.Type
 		tt := typx.NewTTByRT(rt)
 		name := f.Name
@@ -50,15 +49,13 @@ func TestInspectMethods(t *testing.T) {
 
 func TestInspectField(t *testing.T) {
 	rtyp := reflect.TypeFor[testdata.Structures]()
-	for i := range rtyp.NumField() {
-		fi := rtyp.Field(i)
+	for fi := range rtyp.Fields() {
 		rti := fi.Type
 		if rti.Kind() != reflect.Struct {
 			continue
 		}
 		t.Run(fi.Name, func(t *testing.T) {
-			for j := range rti.NumField() {
-				fj := rti.Field(j)
+			for fj := range rti.Fields() {
 				tt := typx.NewTTByRT(rti)
 
 				tf := typx.FieldByName(tt, fj.Name)

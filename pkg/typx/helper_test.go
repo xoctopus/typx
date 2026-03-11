@@ -20,15 +20,15 @@ type (
 )
 
 func TestDeref(t *testing.T) {
-	rt := typx.NewRType(reflect.TypeOf(T1{}))
+	rt := typx.NewRType(reflect.TypeFor[T1]())
 	dt := typx.Deref(rt)
 	Expect(t, dt.String(), Equal(rt.String()))
 
-	rt = typx.NewRType(reflect.TypeOf(*new(T2)))
+	rt = typx.NewRType(reflect.TypeFor[T2]())
 	dt = typx.Deref(rt)
 	Expect(t, dt.String(), Equal(rt.String()))
 
-	rt = typx.NewRType(reflect.TypeOf(new(int)))
+	rt = typx.NewRType(reflect.TypeFor[*int]())
 	dt = typx.Deref(rt)
 	Expect(t, dt.String(), Equal("int"))
 
@@ -42,10 +42,10 @@ func TestDeref(t *testing.T) {
 }
 
 func TestPosOfStructField(t *testing.T) {
-	tt := typx.NewTType(lit.NewTTByRT(reflect.TypeOf(T1{})))
+	tt := typx.NewTType(lit.NewTTByRT(reflect.TypeFor[T1]()))
 	Expect(t, typx.PosOfStructField(tt.Field(0)), NotEqual(0))
 
-	rt := typx.NewRType(reflect.TypeOf(T1{}))
+	rt := typx.NewRType(reflect.TypeFor[T1]())
 	Expect(t, typx.PosOfStructField(rt.Field(0)), Equal(0))
 }
 

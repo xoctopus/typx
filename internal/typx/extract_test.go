@@ -93,15 +93,15 @@ func Example_structInTypeArguments() {
 
 func TestFieldInfo(t *testing.T) {
 	t.Run("StructInTypeArg", func(t *testing.T) {
-		tt := reflect.TypeOf(TT[struct {
+		tt := reflect.TypeFor[TT[struct {
 			string
-			A       int `json:"a,\"'{}()[]//\\"`
-			TT[int] `json:"tt"`
+			A       int "json:\"a,\\\"'{}()[]//\\\\\""
+			TT[int] "json:\"tt\""
 			TT2     TT[struct{ A int }]
 			Reader  io.Reader
 			a       struct{ A string }
 			AA      struct{ B int }
-		}]{})
+		}]]()
 
 		targs, _, _ := typx.Bracketed(tt.String(), '[')
 		fields, _, _ := typx.Bracketed(targs, '{')
@@ -124,15 +124,15 @@ func TestFieldInfo(t *testing.T) {
 		}
 	})
 	t.Run("Struct", func(t *testing.T) {
-		tt := reflect.TypeOf(struct {
+		tt := reflect.TypeFor[struct {
 			string
-			A       int `json:"a,\"'{}()[]//\\"`
-			TT[int] `json:"tt"`
+			A       int "json:\"a,\\\"'{}()[]//\\\\\""
+			TT[int] "json:\"tt\""
 			TT2     TT[struct{ A int }]
 			Reader  io.Reader
 			a       struct{ A string }
 			AA      struct{ B int }
-		}{})
+		}]()
 		fields, _, _ := typx.Bracketed(tt.String(), '{')
 
 		expects := [][3]string{
