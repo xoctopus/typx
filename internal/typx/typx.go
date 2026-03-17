@@ -227,6 +227,30 @@ func (t *LitType) TypeArgs() []*LitType {
 	return t.targs
 }
 
+func (t *LitType) Key() *LitType {
+	return t.key
+}
+
+func (t *LitType) Elem() *LitType {
+	return t.ele
+}
+
+func (t *LitType) Ins() []*LitType {
+	return t.ins
+}
+
+func (t *LitType) Outs() []*LitType {
+	return t.outs
+}
+
+func (t *LitType) Methods() []*LitType {
+	return t.methods
+}
+
+func (t *LitType) Fields() []*LitType {
+	return t.fields
+}
+
 // Kind return literal type kind. it can be seen only when type is unnamed or basic.
 // If type is named type. use pkg/typx.Type instead
 func (t *LitType) Kind() reflect.Kind {

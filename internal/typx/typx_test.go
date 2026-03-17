@@ -88,6 +88,31 @@ func TestLitType(t *testing.T) {
 		Expect(t, len(targs), Equal(1))
 		Expect(t, targs[0].PkgPath(), Equal("fmt"))
 		Expect(t, targs[0].Typename(), Equal("Stringer"))
+
+		rt = typx.NewLitType(reflect.TypeFor[map[int]string]())
+		Expect(t, rt.Key().String(), Equal("int"))
+		Expect(t, rt.Elem().String(), Equal("string"))
+
+		rt = typx.NewLitType(reflect.TypeFor[struct {
+			_ int
+			_ string
+			fmt.Stringer
+		}]())
+		fields := rt.Fields()
+		Expect(t, len(fields), Equal(3))
+		Expect(t, fields[0].String(), Equal("int"))
+		Expect(t, fields[1].String(), Equal("string"))
+		Expect(t, fields[2].String(), Equal("fmt.Stringer"))
+
+		rt = typx.NewLitType(reflect.TypeFor[interface{ String(any) string }]())
+		methods := rt.Methods()
+		Expect(t, len(methods), Equal(1))
+		Expect(t, methods[0].String(), Equal("String(interface {}) string"))
+		ins, outs := methods[0].Ins(), methods[0].Outs()
+		Expect(t, len(ins), Equal(1))
+		Expect(t, ins[0].String(), Equal("interface {}"))
+		Expect(t, len(outs), Equal(1))
+		Expect(t, outs[0].String(), Equal("string"))
 	})
 	t.Run("HitCache", func(t *testing.T) {
 		for _, c := range LitTypeCases {

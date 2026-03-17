@@ -1,8 +1,18 @@
 
 <a name="HEAD"></a>
-## [HEAD](https://github.com/xoctopus/x/compare/v0.4.1...HEAD)
+## [HEAD](https://github.com/xoctopus/x/compare/v0.4.2...HEAD)
 
 > 0001-01-01
+
+
+<a name="v0.4.2"></a>
+## [v0.4.2](https://github.com/xoctopus/x/compare/v0.4.1...v0.4.2)
+
+> 2026-03-17
+
+### Feat
+
+* **helper:** exports Literal
 
 
 <a name="v0.4.1"></a>
