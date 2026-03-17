@@ -19,7 +19,8 @@ endif
 export BUILD_AT := $(shell date "+%Y%m%d%H%M%S")
 
 # global env variables
-export GOWORK := off
+GOWORK ?= off
+export GOWORK
 
 # go build tools
 GOTEST  := go
@@ -110,7 +111,7 @@ ci-cover: lint cover
 fmt: dep clean
 	@echo "==> formating code"
 	@goimports-reviser -rm-unused \
-		-imports-order 'std,general,company,project' \
+		-imports-order 'std,dotted,blanked,general,company,project' \
 		-project-name ${MODULE_PATH} \
 		-excludes $(FORMAT_IGNORES) ./...
 
