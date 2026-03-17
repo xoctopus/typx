@@ -6,9 +6,10 @@ import (
 	"reflect"
 	"testing"
 
+	. "github.com/xoctopus/x/testx"
+
 	"github.com/xoctopus/x/misc/must"
 	"github.com/xoctopus/x/reflectx"
-	. "github.com/xoctopus/x/testx"
 
 	lit "github.com/xoctopus/typx/internal/typx"
 	"github.com/xoctopus/typx/pkg/typx"
