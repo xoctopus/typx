@@ -2,6 +2,8 @@ package typx_test
 
 import (
 	"context"
+	"fmt"
+	"iter"
 	"reflect"
 	"strings"
 	"testing"
@@ -10,6 +12,7 @@ import (
 
 	"github.com/xoctopus/typx/internal/dumper"
 	"github.com/xoctopus/typx/internal/typx"
+	"github.com/xoctopus/typx/testdata"
 )
 
 func TestLitType(t *testing.T) {
@@ -32,6 +35,58 @@ func TestLitType(t *testing.T) {
 			Expect(t, tt.Dump(dumper.CtxWrapID.With(context.Background(), false)), Equal(c.origin))
 		})
 	}
+	t.Run("LitTypeMeta", func(t *testing.T) {
+		rt := typx.NewLitType(reflect.TypeFor[any]())
+		Expect(t, rt.Typename(), Equal(""))
+		Expect(t, rt.TypeArgs(), HaveLen[[]*typx.LitType](0))
+
+		rt = typx.NewLitType(reflect.TypeFor[struct{}]())
+		Expect(t, rt.Typename(), Equal(""))
+		Expect(t, rt.TypeArgs(), HaveLen[[]*typx.LitType](0))
+
+		rt = typx.NewLitType(reflect.TypeFor[error]())
+		Expect(t, rt.Typename(), Equal("error"))
+		Expect(t, rt.TypeArgs(), HaveLen[[]*typx.LitType](0))
+
+		rt = typx.NewLitType(reflect.TypeFor[fmt.Stringer]())
+		Expect(t, rt.Typename(), Equal("Stringer"))
+		Expect(t, rt.TypeArgs(), HaveLen[[]*typx.LitType](0))
+
+		rt = typx.NewLitType(reflect.TypeFor[[]string]())
+		Expect(t, rt.Typename(), Equal(""))
+		Expect(t, rt.TypeArgs(), HaveLen[[]*typx.LitType](0))
+
+		rt = typx.NewLitType(reflect.TypeFor[func()]())
+		Expect(t, rt.Typename(), Equal(""))
+		Expect(t, rt.TypeArgs(), HaveLen[[]*typx.LitType](0))
+
+		rt = typx.NewLitType(reflect.TypeFor[iter.Seq[int]]())
+		Expect(t, rt.Typename(), Equal("Seq"))
+		targs := rt.TypeArgs()
+		Expect(t, len(targs), Equal(1))
+		Expect(t, targs[0].Typename(), Equal("int"))
+
+		rt = typx.NewLitType(reflect.TypeFor[testdata.TypedSliceAliasNetAddr]())
+		Expect(t, rt.Typename(), Equal("TypedSlice"))
+		targs = rt.TypeArgs()
+		Expect(t, len(targs), Equal(1))
+		Expect(t, targs[0].PkgPath(), Equal("net"))
+		Expect(t, targs[0].Typename(), Equal("Addr"))
+
+		rt = typx.NewLitType(reflect.TypeFor[iter.Seq2[int, iter.Seq[fmt.Stringer]]]())
+		Expect(t, rt.PkgPath(), Equal("iter"))
+		Expect(t, rt.Typename(), Equal("Seq2"))
+		targs = rt.TypeArgs()
+		Expect(t, len(targs), Equal(2))
+		Expect(t, targs[0].PkgPath(), Equal(""))
+		Expect(t, targs[0].Typename(), Equal("int"))
+		Expect(t, targs[1].PkgPath(), Equal("iter"))
+		Expect(t, targs[1].Typename(), Equal("Seq"))
+		targs = targs[1].TypeArgs()
+		Expect(t, len(targs), Equal(1))
+		Expect(t, targs[0].PkgPath(), Equal("fmt"))
+		Expect(t, targs[0].Typename(), Equal("Stringer"))
+	})
 	t.Run("HitCache", func(t *testing.T) {
 		for _, c := range LitTypeCases {
 			t.Run(c.name, func(t *testing.T) {

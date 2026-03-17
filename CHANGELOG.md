@@ -2,12 +2,21 @@
 <a name="HEAD"></a>
 ## [HEAD](https://github.com/xoctopus/x/compare/v0.4.0...HEAD)
 
-> 2026-03-08
+> 2026-03-13
+
+### Chore
+
+* go fix for mordernization
 
 ### Ci
 
 * update Makefile
 * update Makefile
+
+### Doc
+
+* update README
+* update README
 
 
 <a name="v0.4.0"></a>

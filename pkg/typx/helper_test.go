@@ -2,6 +2,8 @@ package typx_test
 
 import (
 	"context"
+	"fmt"
+	"iter"
 	"reflect"
 	"testing"
 
@@ -49,6 +51,14 @@ func TestPosOfStructField(t *testing.T) {
 	Expect(t, typx.PosOfStructField(rt.Field(0)), Equal(0))
 }
 
+type X[T any] struct{}
+
 func TestTypeLit(t *testing.T) {
-	Expect(t, typx.TypeLit(context.Background(), reflect.TypeFor[int]()), Equal("int"))
+	ctx := context.Background()
+	rt0 := reflect.TypeFor[int]()
+	rt1 := reflect.TypeFor[X[iter.Seq[fmt.Stringer]]]()
+	t0 := typx.LitType(rt0)
+	t1 := typx.LitType(rt1)
+	Expect(t, t0.String(), Equal(typx.TypeLit(ctx, rt0)))
+	Expect(t, t1.String(), Equal(typx.TypeLit(ctx, rt1)))
 }

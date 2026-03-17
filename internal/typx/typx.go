@@ -217,6 +217,14 @@ func (t *LitType) Name() string {
 	return b.String()
 }
 
+func (t *LitType) Typename() string {
+	return t.typename
+}
+
+func (t *LitType) TypeArgs() []*LitType {
+	return t.targs
+}
+
 // Kind return literal type kind. it can be seen only when type is unnamed or basic.
 // If type is named type. use pkg/typx.Type instead
 func (t *LitType) Kind() reflect.Kind {

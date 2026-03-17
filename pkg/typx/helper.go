@@ -27,3 +27,7 @@ func PosOfStructField(f StructField) int {
 func TypeLit(ctx context.Context, x any) string {
 	return typx.NewLitType(x).Dump(ctx)
 }
+
+func LitType(x any) *typx.LitType {
+	return typx.NewLitType(x)
+}
