@@ -26,6 +26,8 @@ func NewLitType(t any) (x *LitType) {
 		if l, ok := gTLiterals.Load(u); ok {
 			return l
 		}
+	case *LitType:
+		return u
 	default:
 		panic(fmt.Errorf("unexpect input for new a LitType from %T", u))
 	}

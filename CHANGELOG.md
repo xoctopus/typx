@@ -1,8 +1,14 @@
 
 <a name="HEAD"></a>
-## [HEAD](https://github.com/xoctopus/x/compare/v0.4.0...HEAD)
+## [HEAD](https://github.com/xoctopus/x/compare/v0.4.1...HEAD)
 
-> 2026-03-13
+> 0001-01-01
+
+
+<a name="v0.4.1"></a>
+## [v0.4.1](https://github.com/xoctopus/x/compare/v0.4.0...v0.4.1)
+
+> 2026-03-17
 
 ### Chore
 
@@ -17,6 +23,10 @@
 
 * update README
 * update README
+
+### Feat
+
+* **helper:** exports LitType meta
 
 
 <a name="v0.4.0"></a>

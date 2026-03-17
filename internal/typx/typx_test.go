@@ -25,6 +25,7 @@ func TestLitType(t *testing.T) {
 			Expect(t, rt.Dump(context.Background()), Equal(c.origin))
 			Expect(t, rt.Dump(dumper.CtxWrapID.With(context.Background(), true)), Equal(c.wrapped))
 			Expect(t, rt.Dump(dumper.CtxWrapID.With(context.Background(), false)), Equal(c.origin))
+			Expect(t, typx.NewLitType(rt), Equal(rt))
 
 			tt := typx.NewLitType(c.tt)
 			Expect(t, tt.String(), Equal(c.origin))
@@ -33,6 +34,7 @@ func TestLitType(t *testing.T) {
 			Expect(t, tt.Dump(context.Background()), Equal(c.origin))
 			Expect(t, tt.Dump(dumper.CtxWrapID.With(context.Background(), true)), Equal(c.wrapped))
 			Expect(t, tt.Dump(dumper.CtxWrapID.With(context.Background(), false)), Equal(c.origin))
+			Expect(t, typx.NewLitType(tt), Equal(tt))
 		})
 	}
 	t.Run("LitTypeMeta", func(t *testing.T) {

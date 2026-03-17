@@ -8,6 +8,8 @@ import (
 	"github.com/xoctopus/typx/internal/typx"
 )
 
+type Literal = typx.LitType
+
 var CtxPkgNamer = dumper.CtxPkgNamer
 
 func Deref(t Type) Type {
@@ -28,6 +30,6 @@ func TypeLit(ctx context.Context, x any) string {
 	return typx.NewLitType(x).Dump(ctx)
 }
 
-func LitType(x any) *typx.LitType {
+func LitType(x any) *Literal {
 	return typx.NewLitType(x)
 }
