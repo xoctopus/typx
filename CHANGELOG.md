@@ -2,12 +2,13 @@
 <a name="HEAD"></a>
 ## [HEAD](https://github.com/xoctopus/x/compare/v0.4.3...HEAD)
 
-> 2026-03-17
+> 2026-04-23
 
 ### Chore
 
 * fmt code
 * regen scripts
+* **deps:** bump dependencies
 
 
 <a name="v0.4.3"></a>
