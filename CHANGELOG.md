@@ -1,8 +1,19 @@
 
 <a name="HEAD"></a>
-## [HEAD](https://github.com/xoctopus/x/compare/v0.4.2...HEAD)
+## [HEAD](https://github.com/xoctopus/x/compare/v0.4.3...HEAD)
 
-> 0001-01-01
+> 2026-03-17
+
+### Chore
+
+* fmt code
+* regen scripts
+
+
+<a name="v0.4.3"></a>
+## [v0.4.3](https://github.com/xoctopus/x/compare/v0.4.2...v0.4.3)
+
+> 2026-03-17
 
 
 <a name="v0.4.2"></a>
