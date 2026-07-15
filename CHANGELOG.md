@@ -9,6 +9,7 @@
 * fmt code
 * regen scripts
 * **deps:** bump dependencies
+* **deps:** bump dependencies
 
 
 <a name="v0.4.3"></a>

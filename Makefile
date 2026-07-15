@@ -17,6 +17,7 @@ export GIT_TAG    := ""
 export GIT_BRANCH := ""
 endif
 export BUILD_AT := $(shell date "+%Y%m%d%H%M%S")
+export MODULE_PATH
 
 # global env variables
 GOWORK ?= off
@@ -49,6 +50,8 @@ show:
 	@echo "	git-chglog=$(shell which git-chglog) $(DEP_GIT_CHGLOG)"
 	@echo "	goimports-reviser=$(shell which goimports-reviser) $(DEP_GOIMPORTS_REVISER)"
 	@echo "	golangci-lint=$(shell which golangci-lint) $(DEP_GOLANGCI_LINT)"
+	@echo "envs:"
+	@echo "	GOWORK: $(GOWORK)"
 
 dep:
 	@echo "==> installing dependencies"
@@ -111,7 +114,7 @@ ci-cover: lint cover
 fmt: dep clean
 	@echo "==> formating code"
 	@goimports-reviser -rm-unused \
-		-imports-order 'std,dotted,blanked,general,company,project' \
+		-imports-order 'std,general,company,project' \
 		-project-name ${MODULE_PATH} \
 		-excludes $(FORMAT_IGNORES) ./...
 
