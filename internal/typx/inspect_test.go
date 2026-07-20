@@ -6,7 +6,6 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/xoctopus/x/ptrx"
 	. "github.com/xoctopus/x/testx"
 
 	"github.com/xoctopus/typx/internal/typx"
@@ -82,35 +81,35 @@ func Example() {
 	for _, v := range []any{
 		testdata.AmbiguousL1x2{
 			StringerL1: testdata.StringerL1("StringerL1"),
-			Stringer:   ptrx.Ptr(testdata.StringerL1("fmt.Stringer")),
+			Stringer:   new(testdata.StringerL1("fmt.Stringer")),
 		},
 		testdata.AmbiguousL1AndField{
 			StringerL1: testdata.StringerL1("v.StringerL1"),
 			String:     "StringField",
 		},
 		testdata.AmbiguousL2x2{
-			StringerL2:       testdata.StringerL2{Stringer: ptrx.Ptr(testdata.StringerL1("StringerL2"))},
-			StringerL2WrapL1: &testdata.StringerL2WrapL1{StringerL1: ptrx.Ptr(testdata.StringerL1("StringerL2WrapL1"))},
+			StringerL2:       testdata.StringerL2{Stringer: new(testdata.StringerL1("StringerL2"))},
+			StringerL2WrapL1: &testdata.StringerL2WrapL1{StringerL1: new(testdata.StringerL1("StringerL2WrapL1"))},
 		},
 		testdata.UnambiguousL1AndL2x2{
-			StringerL2:       &testdata.StringerL2{Stringer: ptrx.Ptr(testdata.StringerL1("StringerL2"))},
-			StringerL2WrapL1: testdata.StringerL2WrapL1{StringerL1: ptrx.Ptr(testdata.StringerL1("StringerL2WrapL1"))},
-			StringerL1:       ptrx.Ptr(testdata.StringerL1("StringerL1")),
+			StringerL2:       &testdata.StringerL2{Stringer: new(testdata.StringerL1("StringerL2"))},
+			StringerL2WrapL1: testdata.StringerL2WrapL1{StringerL1: new(testdata.StringerL1("StringerL2WrapL1"))},
+			StringerL1:       new(testdata.StringerL1("StringerL1")),
 		},
 		testdata.AmbiguousL1x2AndL2{
 			StringerL1: testdata.StringerL1("StringerL1"),
-			Stringer:   ptrx.Ptr(testdata.StringerL1("fmt.Stringer")),
-			StringerL2: testdata.StringerL2{Stringer: ptrx.Ptr(testdata.StringerL1("StringerL2"))},
+			Stringer:   new(testdata.StringerL1("fmt.Stringer")),
+			StringerL2: testdata.StringerL2{Stringer: new(testdata.StringerL1("StringerL2"))},
 		},
 		testdata.UnambiguousL2AndL3x2{
-			StringerL2:       testdata.StringerL2{Stringer: ptrx.Ptr(testdata.StringerL1("StringerL2"))},
-			StringerL3:       testdata.StringerL3{StringerL2: testdata.StringerL2{Stringer: ptrx.Ptr(testdata.StringerL1("StringerL3"))}},
-			StringerL3WrapL2: testdata.StringerL3WrapL2{StringerL2WrapL1: testdata.StringerL2WrapL1{StringerL1: ptrx.Ptr(testdata.StringerL1("StringerL3WrapL2"))}},
+			StringerL2:       testdata.StringerL2{Stringer: new(testdata.StringerL1("StringerL2"))},
+			StringerL3:       testdata.StringerL3{StringerL2: testdata.StringerL2{Stringer: new(testdata.StringerL1("StringerL3"))}},
+			StringerL3WrapL2: testdata.StringerL3WrapL2{StringerL2WrapL1: testdata.StringerL2WrapL1{StringerL1: new(testdata.StringerL1("StringerL3WrapL2"))}},
 		},
 		testdata.AmbiguousL2AndL3x2AndField{
-			StringerL2:       testdata.StringerL2{Stringer: ptrx.Ptr(testdata.StringerL1("StringerL2"))},
-			StringerL3:       testdata.StringerL3{StringerL2: testdata.StringerL2{Stringer: ptrx.Ptr(testdata.StringerL1("StringerL3"))}},
-			StringerL3WrapL2: testdata.StringerL3WrapL2{StringerL2WrapL1: testdata.StringerL2WrapL1{StringerL1: ptrx.Ptr(testdata.StringerL1("StringerL3WrapL2"))}},
+			StringerL2:       testdata.StringerL2{Stringer: new(testdata.StringerL1("StringerL2"))},
+			StringerL3:       testdata.StringerL3{StringerL2: testdata.StringerL2{Stringer: new(testdata.StringerL1("StringerL3"))}},
+			StringerL3WrapL2: testdata.StringerL3WrapL2{StringerL2WrapL1: testdata.StringerL2WrapL1{StringerL1: new(testdata.StringerL1("StringerL3WrapL2"))}},
 			StringField:      testdata.StringField{String: "any"},
 		},
 	} {

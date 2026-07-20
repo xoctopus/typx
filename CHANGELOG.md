@@ -2,7 +2,17 @@
 <a name="HEAD"></a>
 ## [HEAD](https://github.com/xoctopus/x/compare/v0.4.4...HEAD)
 
-> 0001-01-01
+> 2026-07-17
+
+### Chore
+
+* format code
+* **deps:** bump xoctopus/x to latest
+* **deps:** bump lint actions
+
+### Doc
+
+* update README
 
 
 <a name="v0.4.4"></a>
