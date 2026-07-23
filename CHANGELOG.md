@@ -2,10 +2,11 @@
 <a name="HEAD"></a>
 ## [HEAD](https://github.com/xoctopus/x/compare/v0.4.4...HEAD)
 
-> 2026-07-17
+> 2026-07-20
 
 ### Chore
 
+* remove ptrx.Ptr dependency
 * format code
 * **deps:** bump xoctopus/x to latest
 * **deps:** bump lint actions

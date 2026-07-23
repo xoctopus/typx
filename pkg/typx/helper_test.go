@@ -62,3 +62,18 @@ func TestTypeLit(t *testing.T) {
 	Expect(t, t0.String(), Equal(typx.TypeLit(ctx, rt0)))
 	Expect(t, t1.String(), Equal(typx.TypeLit(ctx, rt1)))
 }
+
+func TestLitTypeByID(t *testing.T) {
+	lt := typx.LitTypeByID("github.com/xoctopus/typx/internal/typx.literal")
+	Expect(t, lt.PkgPath(), Equal("github.com/xoctopus/typx/internal/typx"))
+	Expect(t, lt.Name(), Equal("literal"))
+
+	lt = typx.LitTypeByID("iter.Seq2[int, iter.Seq[float32]]")
+	Expect(t, lt.PkgPath(), Equal("iter"))
+	Expect(t, lt.Typename(), Equal("Seq2"))
+	Expect(t, lt.Name(), Equal("Seq2[int,iter.Seq[float32]]"))
+	targs := lt.TypeArgs()
+	Expect(t, len(targs), Equal(2))
+	Expect(t, targs[0].String(), Equal("int"))
+	Expect(t, targs[1].String(), Equal("iter.Seq[float32]"))
+}

@@ -3,6 +3,7 @@ package typx
 import (
 	"context"
 	"reflect"
+	_ "unsafe"
 
 	"github.com/xoctopus/typx/internal/dumper"
 	"github.com/xoctopus/typx/internal/typx"
@@ -32,4 +33,12 @@ func TypeLit(ctx context.Context, x any) string {
 
 func LitType(x any) *Literal {
 	return typx.NewLitType(x)
+}
+
+//go:linkname wrapID github.com/xoctopus/typx/internal/typx.wrapID
+func wrapID(string) string
+
+func LitTypeByID(id string) *Literal {
+	id = wrapID(id)
+	return typx.NewLitTypeByID(id)
 }
