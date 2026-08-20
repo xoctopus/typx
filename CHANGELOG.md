@@ -1,8 +1,18 @@
 
 <a name="HEAD"></a>
-## [HEAD](https://github.com/xoctopus/x/compare/v0.4.4...HEAD)
+## [HEAD](https://github.com/xoctopus/x/compare/v0.4.5...HEAD)
 
-> 2026-07-20
+> 2026-07-31
+
+### Chore
+
+* **deps:** bump github.com/xoctopus/x from 0.5.4 to 0.5.5
+
+
+<a name="v0.4.5"></a>
+## [v0.4.5](https://github.com/xoctopus/x/compare/v0.4.4...v0.4.5)
+
+> 2026-07-23
 
 ### Chore
 
@@ -14,6 +24,10 @@
 ### Doc
 
 * update README
+
+### Feat
+
+* **typx:** LitTypeByID
 
 
 <a name="v0.4.4"></a>

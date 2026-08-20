@@ -29,7 +29,7 @@ var (
 	gTLiterals = syncx.NewXmap[types.Type, *LitType]()
 
 	// tError error types.Type
-	tError = Lookup[*types.Signature](Load("errors"), "New").Results().At(0).Type()
+	tError = types.Universe.Lookup("error").Type()
 )
 
 func init() {
