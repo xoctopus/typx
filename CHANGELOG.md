@@ -1,12 +1,26 @@
 
 <a name="HEAD"></a>
-## [HEAD](https://github.com/xoctopus/x/compare/v0.4.5...HEAD)
+## [HEAD](https://github.com/xoctopus/x/compare/v0.4.6...HEAD)
 
-> 2026-07-31
+> 2026-08-18
+
+### Chore
+
+* **deps:** bump golang.org/x/tools from 0.48.0 to 0.49.0
+
+
+<a name="v0.4.6"></a>
+## [v0.4.6](https://github.com/xoctopus/x/compare/v0.4.5...v0.4.6)
+
+> 2026-08-20
 
 ### Chore
 
 * **deps:** bump github.com/xoctopus/x from 0.5.4 to 0.5.5
+
+### Fix
+
+* **typx:** resolve error type from types.Universe
 
 
 <a name="v0.4.5"></a>
