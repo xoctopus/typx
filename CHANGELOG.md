@@ -1,16 +1,28 @@
 
 <a name="HEAD"></a>
-## [HEAD](https://github.com/xoctopus/x/compare/v0.4.6...HEAD)
+## [HEAD](https://github.com/xoctopus/typx/compare/v0.4.7...HEAD)
 
-> 2026-08-18
+> 2026-10-07
 
 ### Chore
 
+* **deps:** bump github.com/xoctopus/x from 0.5.8 to 0.5.9
+* **deps:** bump golang.org/x/tools from 0.49.0 to 0.51.0
+
+
+<a name="v0.4.7"></a>
+## [v0.4.7](https://github.com/xoctopus/typx/compare/v0.4.6...v0.4.7)
+
+> 2026-08-28
+
+### Chore
+
+* bump Go to 1.27.0
 * **deps:** bump golang.org/x/tools from 0.48.0 to 0.49.0
 
 
 <a name="v0.4.6"></a>
-## [v0.4.6](https://github.com/xoctopus/x/compare/v0.4.5...v0.4.6)
+## [v0.4.6](https://github.com/xoctopus/typx/compare/v0.4.5...v0.4.6)
 
 > 2026-08-20
 
@@ -24,7 +36,7 @@
 
 
 <a name="v0.4.5"></a>
-## [v0.4.5](https://github.com/xoctopus/x/compare/v0.4.4...v0.4.5)
+## [v0.4.5](https://github.com/xoctopus/typx/compare/v0.4.4...v0.4.5)
 
 > 2026-07-23
 
@@ -45,7 +57,7 @@
 
 
 <a name="v0.4.4"></a>
-## [v0.4.4](https://github.com/xoctopus/x/compare/v0.4.3...v0.4.4)
+## [v0.4.4](https://github.com/xoctopus/typx/compare/v0.4.3...v0.4.4)
 
 > 2026-07-15
 
@@ -59,13 +71,13 @@
 
 
 <a name="v0.4.3"></a>
-## [v0.4.3](https://github.com/xoctopus/x/compare/v0.4.2...v0.4.3)
+## [v0.4.3](https://github.com/xoctopus/typx/compare/v0.4.2...v0.4.3)
 
 > 2026-03-17
 
 
 <a name="v0.4.2"></a>
-## [v0.4.2](https://github.com/xoctopus/x/compare/v0.4.1...v0.4.2)
+## [v0.4.2](https://github.com/xoctopus/typx/compare/v0.4.1...v0.4.2)
 
 > 2026-03-17
 
@@ -75,7 +87,7 @@
 
 
 <a name="v0.4.1"></a>
-## [v0.4.1](https://github.com/xoctopus/x/compare/v0.4.0...v0.4.1)
+## [v0.4.1](https://github.com/xoctopus/typx/compare/v0.4.0...v0.4.1)
 
 > 2026-03-17
 
@@ -99,7 +111,7 @@
 
 
 <a name="v0.4.0"></a>
-## [v0.4.0](https://github.com/xoctopus/x/compare/v0.3.4...v0.4.0)
+## [v0.4.0](https://github.com/xoctopus/typx/compare/v0.3.4...v0.4.0)
 
 > 2026-03-08
 
@@ -109,10 +121,10 @@
 * **deps:** bump xoctopus/x to v0.4.0
 * **deps:** bump dependencies
 * **deps:** bump github.com/xoctopus/x from 0.2.11 to 0.3.0
-* **deps:** bump actions/setup-go from 5 to 6 ([#1](https://github.com/xoctopus/x/issues/1))
-* **deps:** bump actions/checkout from 4 to 6 ([#2](https://github.com/xoctopus/x/issues/2))
-* **deps:** bump codecov/codecov-action from 4 to 5 ([#3](https://github.com/xoctopus/x/issues/3))
-* **deps:** bump github.com/xoctopus/x from 0.2.7 to 0.2.11 ([#4](https://github.com/xoctopus/x/issues/4))
+* **deps:** bump actions/setup-go from 5 to 6 ([#1](https://github.com/xoctopus/typx/issues/1))
+* **deps:** bump actions/checkout from 4 to 6 ([#2](https://github.com/xoctopus/typx/issues/2))
+* **deps:** bump codecov/codecov-action from 4 to 5 ([#3](https://github.com/xoctopus/typx/issues/3))
+* **deps:** bump github.com/xoctopus/x from 0.2.7 to 0.2.11 ([#4](https://github.com/xoctopus/typx/issues/4))
 
 ### Doc
 
@@ -120,7 +132,7 @@
 
 
 <a name="v0.3.4"></a>
-## [v0.3.4](https://github.com/xoctopus/x/compare/v0.3.3...v0.3.4)
+## [v0.3.4](https://github.com/xoctopus/typx/compare/v0.3.3...v0.3.4)
 
 > 2025-12-30
 
@@ -130,7 +142,7 @@
 
 
 <a name="v0.3.3"></a>
-## [v0.3.3](https://github.com/xoctopus/x/compare/v0.3.2...v0.3.3)
+## [v0.3.3](https://github.com/xoctopus/typx/compare/v0.3.2...v0.3.3)
 
 > 2025-12-22
 
@@ -141,7 +153,7 @@
 
 
 <a name="v0.3.2"></a>
-## [v0.3.2](https://github.com/xoctopus/x/compare/v0.3.1...v0.3.2)
+## [v0.3.2](https://github.com/xoctopus/typx/compare/v0.3.1...v0.3.2)
 
 > 2025-12-03
 
@@ -151,7 +163,7 @@
 
 
 <a name="v0.3.1"></a>
-## [v0.3.1](https://github.com/xoctopus/x/compare/v0.3.0...v0.3.1)
+## [v0.3.1](https://github.com/xoctopus/typx/compare/v0.3.0...v0.3.1)
 
 > 2025-12-02
 
@@ -161,7 +173,7 @@
 
 
 <a name="v0.3.0"></a>
-## [v0.3.0](https://github.com/xoctopus/x/compare/v0.2.1...v0.3.0)
+## [v0.3.0](https://github.com/xoctopus/typx/compare/v0.2.1...v0.3.0)
 
 > 2025-12-02
 
@@ -197,7 +209,7 @@
 
 
 <a name="v0.2.1"></a>
-## [v0.2.1](https://github.com/xoctopus/x/compare/v0.2.0...v0.2.1)
+## [v0.2.1](https://github.com/xoctopus/typx/compare/v0.2.0...v0.2.1)
 
 > 2025-10-23
 
@@ -207,7 +219,7 @@
 
 
 <a name="v0.2.0"></a>
-## [v0.2.0](https://github.com/xoctopus/x/compare/v0.1.2...v0.2.0)
+## [v0.2.0](https://github.com/xoctopus/typx/compare/v0.1.2...v0.2.0)
 
 > 2025-10-23
 
@@ -243,7 +255,7 @@
 
 
 <a name="v0.1.2"></a>
-## [v0.1.2](https://github.com/xoctopus/x/compare/v0.1.1...v0.1.2)
+## [v0.1.2](https://github.com/xoctopus/typx/compare/v0.1.1...v0.1.2)
 
 > 2025-03-23
 
@@ -253,7 +265,7 @@
 
 
 <a name="v0.1.1"></a>
-## [v0.1.1](https://github.com/xoctopus/x/compare/v0.1.0...v0.1.1)
+## [v0.1.1](https://github.com/xoctopus/typx/compare/v0.1.0...v0.1.1)
 
 > 2025-03-23
 

@@ -2,7 +2,7 @@ style: github
 template: CHANGELOG.tpl.md
 info:
   title: CHANGELOG
-  repository_url: https://github.com/xoctopus/x
+  repository_url: https://github.com/xoctopus/typx
 options:
   commits:
     # filters:
@@ -26,3 +26,4 @@ options:
   notes:
     keywords:
       - BREAKING CHANGE
+

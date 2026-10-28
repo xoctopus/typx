@@ -67,8 +67,8 @@ func (m *Method) CheckRef(t types.Type) bool {
 	if _, ok := t.(*types.Pointer); ok {
 		return true
 	}
-	for i := len(m.refs) - 1; i >= 0; i-- {
-		if _, ok := m.refs[i].(*types.Pointer); ok {
+	for _, v := range slices.Backward(m.refs) {
+		if _, ok := v.(*types.Pointer); ok {
 			return true
 		}
 	}

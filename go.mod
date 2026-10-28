@@ -1,6 +1,6 @@
 module github.com/xoctopus/typx
 
-go 1.27.0
+go 1.27.3
 
 require (
 	github.com/xoctopus/x v0.5.9
